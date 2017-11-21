@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tr.p5.mapper.staff.StaffMapper">
+	<resultMap id="BaseResultMap" type="com.tr.p5.entity.Staff">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="nickname" jdbcType="VARCHAR" property="nickname" />
+		<result column="password" jdbcType="VARCHAR" property="password" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="age" jdbcType="INTEGER" property="age" />
+		<result column="phone" jdbcType="VARCHAR" property="phone" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="salary" jdbcType="INTEGER" property="salary" />
+		<result column="position" jdbcType="VARCHAR" property="position" />
+		<result column="department" jdbcType="VARCHAR" property="department" />
+		<result column="role" jdbcType="VARCHAR" property="role" />
+		<result column="register_date" jdbcType="TIMESTAMP" property="registerDate" />
+		<result column="confirm_person" jdbcType="VARCHAR" property="confirmPerson" />
+		<result column="introduction" jdbcType="VARCHAR" property="introduction" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id, nickname, password, name, age, phone, email, salary, position,
+		department, role,
+		register_date, confirm_person, introduction
+	</sql>
+	
+	<select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from staff
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	
+	<delete id="deleteById" parameterType="java.lang.Integer">
+		delete from staff
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	
+	<insert id="insert" parameterType="com.tr.p5.entity.Staff">
+		insert into staff (id, nickname, password,
+		name, age, phone, email,
+		salary, position, department,
+		role, register_date, confirm_person,
+		introduction)
+		values (#{id,jdbcType=INTEGER}, #{nickname,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},
+		#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR},
+		#{salary,jdbcType=INTEGER}, #{position,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR},
+		#{role,jdbcType=VARCHAR}, #{registerDate,jdbcType=TIMESTAMP},
+		#{confirmPerson,jdbcType=VARCHAR},
+		#{introduction,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="updateById" parameterType="com.tr.p5.entity.Staff">
+		update staff
+		<set>
+			<if test="nickname != null">
+				nickname = #{nickname,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="age != null">
+				age = #{age,jdbcType=INTEGER},
+			</if>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="salary != null">
+				salary = #{salary,jdbcType=INTEGER},
+			</if>
+			<if test="position != null">
+				position = #{position,jdbcType=VARCHAR},
+			</if>
+			<if test="department != null">
+				department = #{department,jdbcType=VARCHAR},
+			</if>
+			<if test="role != null">
+				role = #{role,jdbcType=VARCHAR},
+			</if>
+			<if test="registerDate != null">
+				register_date = #{registerDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="confirmPerson != null">
+				confirm_person = #{confirmPerson,jdbcType=VARCHAR},
+			</if>
+			<if test="introduction != null">
+				introduction = #{introduction,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	
+</mapper>

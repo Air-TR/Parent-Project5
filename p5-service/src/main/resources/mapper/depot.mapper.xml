@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tr.p5.mapper.depot.DepotMapper">
+	<resultMap id="BaseResultMap" type="com.tr.p5.entity.Depot">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="place" jdbcType="VARCHAR" property="place" />
+		<result column="heat" jdbcType="DOUBLE" property="heat" />
+		<result column="sulphur" jdbcType="DOUBLE" property="sulphur" />
+		<result column="carbon" jdbcType="DOUBLE" property="carbon" />
+		<result column="ash" jdbcType="DOUBLE" property="ash" />
+		<result column="volatiles" jdbcType="DOUBLE" property="volatiles" />
+		<result column="water" jdbcType="DOUBLE" property="water" />
+		<result column="total_amount" jdbcType="DOUBLE" property="totalAmount" />
+		<result column="unit_price" jdbcType="DOUBLE" property="unitPrice" />
+		<result column="confirm_person" jdbcType="VARCHAR" property="confirmPerson" />
+		<result column="remark" jdbcType="VARCHAR" property="remark" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id, name, place, heat, sulphur, carbon, ash, volatiles, water,
+		total_amount, unit_price,
+		confirm_person, remark
+	</sql>
+	
+	<select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from depot
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	
+	<select id="selectList" parameterType="com.tr.p5.entity.Depot" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from depot
+	</select>
+	
+	<delete id="deleteById" parameterType="java.lang.Integer">
+		delete from depot
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	
+	<insert id="insert" parameterType="com.tr.p5.entity.Depot">
+		insert into depot (id, name, place,
+		heat, sulphur, carbon,
+		ash, volatiles, water,
+		total_amount, unit_price, confirm_person,
+		remark)
+		values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
+		#{place,jdbcType=VARCHAR},
+		#{heat,jdbcType=DOUBLE}, #{sulphur,jdbcType=DOUBLE}, #{carbon,jdbcType=DOUBLE},
+		#{ash,jdbcType=DOUBLE}, #{volatiles,jdbcType=DOUBLE},
+		#{water,jdbcType=DOUBLE},
+		#{totalAmount,jdbcType=DOUBLE}, #{unitPrice,jdbcType=DOUBLE}, #{confirmPerson,jdbcType=VARCHAR},
+		#{remark,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="updateById" parameterType="com.tr.p5.entity.Depot">
+		update depot
+		<set>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="place != null">
+				place = #{place,jdbcType=VARCHAR},
+			</if>
+			<if test="heat != null">
+				heat = #{heat,jdbcType=DOUBLE},
+			</if>
+			<if test="sulphur != null">
+				sulphur = #{sulphur,jdbcType=DOUBLE},
+			</if>
+			<if test="carbon != null">
+				carbon = #{carbon,jdbcType=DOUBLE},
+			</if>
+			<if test="ash != null">
+				ash = #{ash,jdbcType=DOUBLE},
+			</if>
+			<if test="volatiles != null">
+				volatiles = #{volatiles,jdbcType=DOUBLE},
+			</if>
+			<if test="water != null">
+				water = #{water,jdbcType=DOUBLE},
+			</if>
+			<if test="totalAmount != null">
+				total_amount = #{totalAmount,jdbcType=DOUBLE},
+			</if>
+			<if test="unitPrice != null">
+				unit_price = #{unitPrice,jdbcType=DOUBLE},
+			</if>
+			<if test="confirmPerson != null">
+				confirm_person = #{confirmPerson,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null">
+				remark = #{remark,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	
+</mapper>
