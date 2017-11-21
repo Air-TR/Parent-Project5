@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tr.p5.entity.Staff;
+import com.tr.p5.interceptor.Interceptor1;
 import com.tr.p5.jpa.staff.StaffRepository;
 import com.tr.p5.result.Result;
+import com.tr.p5.result.ResultEnum;
 import com.tr.p5.service.staff.IStaffService;
 
 import io.swagger.annotations.Api;
@@ -32,7 +34,12 @@ public class StaffController {
 	@ApiOperation(value = "职员登录")
 	@PostMapping("/staff/login")
 	public Result<Staff> login(@RequestParam String phone, @RequestParam String password, HttpSession session) {
-		return Result.success(staffService.login(phone, password, session));
+		Staff user = staffService.login(phone, password);
+		if (user != null) {
+			session.setAttribute(Interceptor1.SESSION_ATTR_USER, user);
+			return Result.success(user);
+		}
+		return Result.fail(ResultEnum.LOGIN_FAIL);
 	}
 	
 	@ApiOperation(value = "根据id获取")

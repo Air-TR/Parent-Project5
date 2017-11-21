@@ -1,14 +1,10 @@
 package com.tr.p5.service.staff.impl;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tr.p5.entity.Staff;
-import com.tr.p5.exception.MyException;
 import com.tr.p5.jpa.staff.StaffRepository;
-import com.tr.p5.result.ResultEnum;
 import com.tr.p5.service.staff.IStaffService;
 
 @Service
@@ -23,13 +19,12 @@ public class StaffService implements IStaffService {
 	}
 
 	@Override
-	public Staff login(String phone, String password, HttpSession session) {
+	public Staff login(String phone, String password) {
 		Staff record = staffRepository.findByPhone(phone);
-		if (record != null && record.getPassword().equals(password)) {
-			session.setAttribute("user", record);
+		if (record != null && record.getPassword().equals(password)) { // 登录成功
 			return record;
 		}
-		throw new MyException(ResultEnum.LOGIN_FAIL);
+		return null;
 	}
 
 }
