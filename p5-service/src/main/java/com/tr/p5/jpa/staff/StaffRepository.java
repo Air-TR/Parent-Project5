@@ -6,4 +6,6 @@ import com.tr.p5.entity.Staff;
 
 public interface StaffRepository extends JpaRepository<Staff, Integer> {
 	
+	public Staff findByPhone(String phone);
+	
 }

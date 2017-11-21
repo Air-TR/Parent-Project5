@@ -5,7 +5,10 @@ public enum ResultEnum {
     UNKNOWN_ERROR(-1, "未知错误"),
     SUCCESS(0, "成功"),
     FAIL(1, "失败"),
-    MY_EXCEPTION_TEST(101, "自定义异常报错测试");
+    NO_LOGIN(2, "未登录"),
+    LOGIN_FAIL(3, "登录失败，用户名或密码不正确"),
+    MY_EXCEPTION_TEST(101, "自定义异常报错测试"),
+    ;
 	
 	private Integer code;
 	

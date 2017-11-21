@@ -1,11 +1,18 @@
 package com.tr.p5.controller.staff;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tr.p5.entity.Staff;
+import com.tr.p5.jpa.staff.StaffRepository;
 import com.tr.p5.result.Result;
 import com.tr.p5.service.staff.IStaffService;
 
@@ -19,10 +26,25 @@ public class StaffController {
 	@Autowired
 	private IStaffService staffService;
 	
+	@Autowired
+	private StaffRepository staffRepository;
+	
+	@ApiOperation(value = "职员登录")
+	@PostMapping("/staff/login")
+	public Result<Staff> login(@RequestParam String phone, @RequestParam String password, HttpSession session) {
+		return Result.success(staffService.login(phone, password, session));
+	}
+	
 	@ApiOperation(value = "根据id获取")
 	@GetMapping("/staff/get/{id}")
 	public Result<Staff> get(@PathVariable Integer id) {
 		return Result.success(staffService.get(id));
+	}
+	
+	@ApiOperation(value = "根据全部职员列表")
+	@GetMapping("/staff/list")
+	public Result<List<Staff>> list() {
+		return Result.success(staffRepository.findAll());
 	}
 
 }
