@@ -1,5 +1,6 @@
 package com.tr.p5.interceptor;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -14,6 +15,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Configuration
 public class WebMvc extends WebMvcConfigurerAdapter {
+	
+	@Autowired
+	private Interceptor1 interceptor1;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -21,7 +25,7 @@ public class WebMvc extends WebMvcConfigurerAdapter {
         /**
          * 以下拦截器可以复制多个同时使用
          */
-        registry.addInterceptor(new Interceptor1())
+        registry.addInterceptor(interceptor1)
         		.addPathPatterns(		// 添加拦截
         				new String[] { "/**" })
         		.excludePathPatterns(	// 排除拦截
@@ -30,7 +34,6 @@ public class WebMvc extends WebMvcConfigurerAdapter {
     						"/staff/login"
         				});
         
-        super.addInterceptors(registry);
     }
 
 }

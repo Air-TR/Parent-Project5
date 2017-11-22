@@ -31,7 +31,8 @@ public class Swagger2 {
     private Tag[] getTags() {
 	    	Tag[] tags = {
 	    		new Tag("Depot", "仓库"),
-	    		new Tag("Exception", "异常")
+	    		new Tag("Exception", "异常"),
+	    		new Tag("Properties", "配置")
 	    	};
 	    	return tags;
     }
