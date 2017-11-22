@@ -19,6 +19,7 @@ import com.tr.p5.result.ResultEnum;
  * @date 2017年11月21日 下午5:15:12
  *
  */
+
 @Component
 public class Interceptor1 extends HandlerInterceptorAdapter {
 	
