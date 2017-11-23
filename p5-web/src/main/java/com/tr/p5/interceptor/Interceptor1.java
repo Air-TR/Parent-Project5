@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.tr.common.exception.MyException;
+import com.tr.common.result.ResultEnum;
 import com.tr.p5.entity.Staff;
-import com.tr.p5.exception.MyException;
-import com.tr.p5.result.ResultEnum;
 
 /**
  * 拦截器1

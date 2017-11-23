@@ -3,6 +3,9 @@ package com.tr.p5.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel
 @Entity
 public class Depot {
 	

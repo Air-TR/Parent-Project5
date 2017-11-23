@@ -29,7 +29,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -50,6 +50,7 @@
 		<module>p5-entity</module>
 		<module>p5-service</module>
 		<module>p5-web</module>
+		<module>p5-common</module>
 	</modules>
 	
 </project>

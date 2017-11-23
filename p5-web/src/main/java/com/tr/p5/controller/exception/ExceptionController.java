@@ -3,8 +3,8 @@ package com.tr.p5.controller.exception;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tr.p5.exception.MyException;
-import com.tr.p5.result.ResultEnum;
+import com.tr.common.exception.MyException;
+import com.tr.common.result.ResultEnum;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

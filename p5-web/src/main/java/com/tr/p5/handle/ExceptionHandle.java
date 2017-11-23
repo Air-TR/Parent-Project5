@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tr.p5.exception.MyException;
-import com.tr.p5.result.Result;
-import com.tr.p5.result.ResultEnum;
+import com.tr.common.exception.MyException;
+import com.tr.common.result.Result;
+import com.tr.common.result.ResultEnum;
 
 /**
  * 统一异常处理

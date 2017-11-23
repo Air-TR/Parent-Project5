@@ -18,7 +18,7 @@ public class DepotService implements IDepotService {
 	
 	@Autowired
 	private DepotMapper depotMapper;
-
+	
 	@Override
 	public int deleteById(Integer id) {
 		return 0;

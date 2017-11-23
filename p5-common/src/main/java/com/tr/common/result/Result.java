@@ -1,4 +1,4 @@
-package com.tr.p5.result;
+package com.tr.common.result;
 
 public class Result<T> {
 

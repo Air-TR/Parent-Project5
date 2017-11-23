@@ -1,6 +1,6 @@
-package com.tr.p5.exception;
+package com.tr.common.exception;
 
-import com.tr.p5.result.ResultEnum;
+import com.tr.common.result.ResultEnum;
 
 /**
  * 自定义异常
@@ -12,13 +12,18 @@ import com.tr.p5.result.ResultEnum;
 
 public class MyException extends RuntimeException {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2463545557484894315L;
 	
 	private Integer code;
 	
     public MyException(ResultEnum resultEnum) {
         super(resultEnum.getMsg());
         this.code = resultEnum.getCode();
+    }
+    
+    public MyException(ResultEnum resultEnum, Exception exception) {
+		super(resultEnum.getMsg() + " : " + exception.getMessage());
+		this.code = resultEnum.getCode();
     }
 
     public Integer getCode() {

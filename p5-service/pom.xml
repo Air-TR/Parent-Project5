@@ -17,6 +17,12 @@
             <artifactId>p5-entity</artifactId>
             <version>${project.version}</version>
         </dependency>
+	
+		<dependency>
+            <groupId>com.tr</groupId>
+            <artifactId>p5-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         
         <dependency>
 			<groupId>mysql</groupId>

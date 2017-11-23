@@ -1,4 +1,4 @@
-package com.tr.p5.result;
+package com.tr.common.result;
 
 public enum ResultEnum {
 
@@ -8,6 +8,7 @@ public enum ResultEnum {
     NO_LOGIN(2, "未登录"),
     LOGIN_FAIL(3, "登录失败，用户名或密码不正确"),
     MY_EXCEPTION_TEST(101, "自定义异常报错测试"),
+    DAO_EXCEPTION(102, "Database访问异常"),
     ;
 	
 	private Integer code;

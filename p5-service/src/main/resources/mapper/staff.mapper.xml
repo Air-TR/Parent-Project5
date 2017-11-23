@@ -31,6 +31,12 @@
 		where id = #{id,jdbcType=INTEGER}
 	</select>
 	
+	<select id="selectPage" parameterType="com.tr.p5.entity.Staff" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from staff
+	</select>
+	
 	<delete id="deleteById" parameterType="java.lang.Integer">
 		delete from staff
 		where id = #{id,jdbcType=INTEGER}

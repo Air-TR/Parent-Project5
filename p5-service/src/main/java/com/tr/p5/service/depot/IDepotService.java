@@ -17,5 +17,5 @@ public interface IDepotService {
     List<Depot> selectList(Depot record);
     
     List<Depot> selectListByName(String name);
-
+    
 }
