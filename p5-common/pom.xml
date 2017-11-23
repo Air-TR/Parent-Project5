@@ -29,7 +29,13 @@
 		    <artifactId>spring-tx</artifactId>
 		</dependency>
 		
-
+		<!-- 以上三个可以用下面的一个代替，只是各类版本不是最新 -->
+		<!-- <dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <version>1.1.1</version>
+		</dependency> -->
+		
 	</dependencies>
 	
 </project>

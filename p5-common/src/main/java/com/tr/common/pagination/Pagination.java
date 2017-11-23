@@ -3,13 +3,14 @@ package com.tr.common.pagination;
 import java.io.Serializable;
 
 /**
- * 分页模型，需要设置每一页的数据量和总数据量后即可使用 每一页的数据量可以设置也可以使用默认值
- * 
+ * 分页模型，每一页的数据量可以设置也可以使用默认值
  * 如果 rowCount 或 totalPage 为 -1 时表示不考虑总页数和总数据量
  * 
- * @author wub
+ * @author taorun
+ * @date 2017年11月23日 下午4:42:41
  *
  */
+
 public class Pagination implements Serializable {
 
 	private static final long serialVersionUID = 957746889623980458L;
