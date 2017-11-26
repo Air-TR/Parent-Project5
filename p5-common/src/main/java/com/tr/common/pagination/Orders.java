@@ -70,7 +70,8 @@ public class Orders implements Serializable {
 	 * 排序模型条目
 	 */
 	public class OrderItem implements Serializable {
-		private static final long serialVersionUID = 3503243780205745817L;
+		
+		private static final long serialVersionUID = 219628579511055007L;
 
 		/**
 		 * 默认降序

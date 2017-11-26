@@ -1,4 +1,4 @@
-package com.tr.p5.common;
+package com.tr.common.page;
 
 public class Sort {
 

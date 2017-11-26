@@ -2,8 +2,6 @@ package com.tr.p5.controller.depot;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,10 +10,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+//import com.tr.common.page.PageReq;
+//import com.tr.common.page.PageRes;
 import com.tr.common.pagination.PaginationList;
+import com.tr.common.pagination.PaginationOrdersList;
 import com.tr.common.result.Result;
 import com.tr.p5.dao.depot.DepotDao;
 import com.tr.p5.entity.Depot;
+//import com.tr.p5.hibernate.DepotHibernate;
 import com.tr.p5.jpa.depot.DepotRepository;
 import com.tr.p5.mapper.depot.DepotMapper;
 import com.tr.p5.service.depot.IDepotService;
@@ -38,16 +40,39 @@ public class DepotController {
 	
 	@Autowired
 	private IDepotService depotService;
-
-	@ApiOperation(value = "获取分页列表")
+	
+//	关于 Hibernate 的整合在项目 Parent-Project6 中独立研究，
+//	首先解决外部jar包中类的自动注入问题（BaseService中的HibernateTemplate）。
+//	
+//	@Autowired
+//	private DepotHibernate depotHibernate;
+//	
+//	@ApiOperation(value = "获取分页列表 Hibernate")
+//	@PostMapping("/depot/list-hibernate")
+//	public PageRes<List<Depot>> pageList(@RequestBody PageReq<Depot> page) {
+//		return depotHibernate.pageList(page);
+//	}
+	
+	@ApiOperation(value = "获取分页列表 PaginationList")
 	@PostMapping("/depot/list")
-	public Result<PaginationList<Depot>> pageList(@RequestBody PaginationList<Depot> page, HttpServletRequest request) {
+	public Result<PaginationList<Depot>> pageList(@RequestBody PaginationList<Depot> page) {
 		Depot depot = null;
 		if (page.getDatas() != null) {
 			depot = page.getDatas().get(0);
 		}
         page = depotDao.selectPage(page, depot);
         return Result.success(page);
+	}
+	
+	@ApiOperation(value = "获取分页列表 PaginationOrdersList")
+	@PostMapping("/depot/list2")
+	public Result<PaginationOrdersList<Depot>> pageList(@RequestBody PaginationOrdersList<Depot> page) {
+		Depot depot = null;
+		if (page.getDatas() != null) {
+			depot = page.getDatas().get(0);
+		}
+		page = depotDao.selectPage(page, depot);
+		return Result.success(page);
 	}
 	
 	@ApiOperation(value = "根据id修改确认人")

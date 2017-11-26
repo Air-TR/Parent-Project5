@@ -1,16 +1,17 @@
 package com.tr.p5.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-import io.swagger.annotations.ApiModel;
-
-@ApiModel
 @Entity
+@Table(name = "depot")
 public class Depot {
 	
     /** 主键id */
-	@Id
     private Integer id;
 
     /** 仓库名 */
@@ -49,6 +50,8 @@ public class Depot {
     /** 备注 */
     private String remark;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -57,6 +60,7 @@ public class Depot {
         this.id = id;
     }
 
+    @Column
     public String getName() {
         return name;
     }
@@ -65,6 +69,7 @@ public class Depot {
         this.name = name == null ? null : name.trim();
     }
 
+    @Column
     public String getPlace() {
         return place;
     }
@@ -73,6 +78,7 @@ public class Depot {
         this.place = place == null ? null : place.trim();
     }
 
+    @Column
     public Double getHeat() {
         return heat;
     }
@@ -81,6 +87,7 @@ public class Depot {
         this.heat = heat;
     }
 
+    @Column
     public Double getSulphur() {
         return sulphur;
     }
@@ -89,6 +96,7 @@ public class Depot {
         this.sulphur = sulphur;
     }
 
+    @Column
     public Double getCarbon() {
         return carbon;
     }
@@ -97,6 +105,7 @@ public class Depot {
         this.carbon = carbon;
     }
 
+    @Column
     public Double getAsh() {
         return ash;
     }
@@ -105,6 +114,7 @@ public class Depot {
         this.ash = ash;
     }
 
+    @Column
     public Double getVolatiles() {
         return volatiles;
     }
@@ -113,6 +123,7 @@ public class Depot {
         this.volatiles = volatiles;
     }
 
+    @Column
     public Double getWater() {
         return water;
     }
@@ -121,6 +132,7 @@ public class Depot {
         this.water = water;
     }
 
+    @Column(name = "total_amount")
     public Double getTotalAmount() {
         return totalAmount;
     }
@@ -129,6 +141,7 @@ public class Depot {
         this.totalAmount = totalAmount;
     }
 
+    @Column(name = "unit_price")
     public Double getUnitPrice() {
         return unitPrice;
     }
@@ -137,6 +150,7 @@ public class Depot {
         this.unitPrice = unitPrice;
     }
 
+    @Column(name = "confirm_person")
     public String getConfirmPerson() {
         return confirmPerson;
     }
@@ -145,6 +159,7 @@ public class Depot {
         this.confirmPerson = confirmPerson == null ? null : confirmPerson.trim();
     }
 
+    @Column
     public String getRemark() {
         return remark;
     }
