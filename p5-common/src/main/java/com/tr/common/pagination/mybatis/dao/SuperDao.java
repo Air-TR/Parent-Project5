@@ -1,4 +1,4 @@
-package com.tr.common.pagination.dao;
+package com.tr.common.pagination.mybatis.dao;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.tr.common.exception.DaoException;
-import com.tr.common.pagination.PaginationList;
-import com.tr.common.pagination.PaginationOrdersList;
+import com.tr.common.pagination.mybatis.PaginationList;
+import com.tr.common.pagination.mybatis.PaginationOrdersList;
 
 /**
  * Mybatis Base Super Dao

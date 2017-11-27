@@ -3,9 +3,9 @@ package com.tr.common.hibernate.pojo;
 import java.util.List;
 import java.util.Objects;
 
-import com.tr.common.page.PageReq;
-import com.tr.common.page.Sort;
-import com.tr.common.page.SortModel;
+import com.tr.common.pagination.hibernate.PageReq;
+import com.tr.common.pagination.hibernate.Sort;
+import com.tr.common.pagination.hibernate.SortModel;
 
 /**
  * 封装hql查询参数

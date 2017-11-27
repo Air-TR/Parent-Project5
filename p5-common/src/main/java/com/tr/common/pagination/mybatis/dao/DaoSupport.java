@@ -1,4 +1,4 @@
-package com.tr.common.pagination.dao;
+package com.tr.common.pagination.mybatis.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,8 +14,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.SqlSessionUtils;
 import org.springframework.util.Assert;
 
-import com.tr.common.pagination.dao.util.JdbcUtils;
-import com.tr.common.pagination.dao.util.MybatisUtils;
+import com.tr.common.pagination.mybatis.dao.util.JdbcUtils;
+import com.tr.common.pagination.mybatis.dao.util.MybatisUtils;
 
 /**
  * Mybatis Base Super Dao dependency: mybatis, mybatis-spring

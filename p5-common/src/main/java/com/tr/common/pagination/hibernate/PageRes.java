@@ -1,4 +1,4 @@
-package com.tr.common.page;
+package com.tr.common.pagination.hibernate;
 
 import java.util.List;
 
@@ -18,11 +18,11 @@ public class PageRes<T> extends Result<T> {
 	@ApiModelProperty(value = "总数据")
 	private long total = 0L;
 
-	@ApiModelProperty(value = "分组条件")
+	@ApiModelProperty(value = "排序条件")
 	private List<Sort> sorts;
 
-//	@ApiModelProperty(value = "分组条件")
-//	private String group;
+	@ApiModelProperty(value = "分组条件")
+	private String group;
 
 	public PageRes() {
 	}
@@ -32,7 +32,7 @@ public class PageRes<T> extends Result<T> {
 		this.pageSize = request.getPageSize();
 		this.sorts = request.getSorts();
 		this.total = request.getTotal();
-//		this.group = request.getGroup();
+		this.group = request.getGroup();
 	}
 
 	public int getPage() {
@@ -67,12 +67,12 @@ public class PageRes<T> extends Result<T> {
 		this.sorts = sorts;
 	}
 
-//	public String getGroup() {
-//		return group;
-//	}
-//
-//	public void setGroup(String group) {
-//		this.group = group;
-//	}
+	public String getGroup() {
+		return group;
+	}
+
+	public void setGroup(String group) {
+		this.group = group;
+	}
 	
 }

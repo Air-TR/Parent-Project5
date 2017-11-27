@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.tr.common.hibernate.pojo.HqlQuerys;
-import com.tr.common.page.PageRes;
+import com.tr.common.pagination.hibernate.PageRes;
 
 /**
  * hql查询行为

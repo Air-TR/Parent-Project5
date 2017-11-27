@@ -1,4 +1,4 @@
-package com.tr.common.pagination;
+package com.tr.common.pagination.mybatis;
 
 import java.io.Serializable;
 import java.util.ArrayList;

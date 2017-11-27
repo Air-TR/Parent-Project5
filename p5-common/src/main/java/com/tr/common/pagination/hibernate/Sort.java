@@ -1,4 +1,4 @@
-package com.tr.common.page;
+package com.tr.common.pagination.hibernate;
 
 public class Sort {
 

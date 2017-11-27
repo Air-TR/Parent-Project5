@@ -1,4 +1,4 @@
-package com.tr.common.pagination.dao.util;
+package com.tr.common.pagination.mybatis.dao.util;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;

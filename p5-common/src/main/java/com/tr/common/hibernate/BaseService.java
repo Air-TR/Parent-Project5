@@ -24,9 +24,9 @@ import org.springframework.util.CollectionUtils;
 import com.tr.common.hibernate.pojo.HqlQuerys;
 import com.tr.common.hibernate.pojo.SqlQuerys;
 import com.tr.common.hibernate.transform.MyAliasToBeanResultTransformer;
-import com.tr.common.page.PageRes;
-import com.tr.common.page.Sort;
-import com.tr.common.page.SortModel;
+import com.tr.common.pagination.hibernate.PageRes;
+import com.tr.common.pagination.hibernate.Sort;
+import com.tr.common.pagination.hibernate.SortModel;
 
 /**
  * 基础

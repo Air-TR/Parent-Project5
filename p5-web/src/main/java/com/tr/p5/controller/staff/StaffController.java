@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tr.common.pagination.PaginationList;
+import com.tr.common.pagination.mybatis.PaginationList;
 import com.tr.common.result.Result;
 import com.tr.common.result.ResultEnum;
 import com.tr.p5.dao.staff.StaffDao;

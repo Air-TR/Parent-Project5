@@ -1,4 +1,4 @@
-package com.tr.common.page;
+package com.tr.common.pagination.hibernate;
 
 import java.beans.PropertyDescriptor;
 import java.util.ArrayList;
@@ -13,8 +13,8 @@ public class PageReq<T> {
     @ApiModelProperty(value = "排序条件")
     private List<Sort> sorts;
     
-    //@ApiModelProperty(value = "分组条件")
-    //private String group;
+    @ApiModelProperty(value = "分组条件")
+    private String group;
     
     @ApiModelProperty(value = "默认值1")
     private int page = 1;
@@ -64,7 +64,6 @@ public class PageReq<T> {
         this.data = data;
     }
 
-/*
     public String getGroup() {
         return group;
     }
@@ -72,7 +71,7 @@ public class PageReq<T> {
     public void setGroup(String group) {
         this.group = group;
     }
-*/
+
     public int getPage() {
         return page;
     }

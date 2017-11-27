@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.tr.common.hibernate.pojo.SqlQuerys;
-import com.tr.common.page.PageRes;
+import com.tr.common.pagination.hibernate.PageRes;
 
 /**
  * Sql查询行为

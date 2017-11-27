@@ -2,9 +2,9 @@ package com.tr.p5.dao.depot;
 
 import org.springframework.stereotype.Repository;
 
-import com.tr.common.pagination.PaginationList;
-import com.tr.common.pagination.PaginationOrdersList;
-import com.tr.common.pagination.dao.SuperDao;
+import com.tr.common.pagination.mybatis.PaginationList;
+import com.tr.common.pagination.mybatis.PaginationOrdersList;
+import com.tr.common.pagination.mybatis.dao.SuperDao;
 import com.tr.p5.entity.Depot;
 
 @Repository

@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-//import com.tr.common.page.PageReq;
-//import com.tr.common.page.PageRes;
-import com.tr.common.pagination.PaginationList;
-import com.tr.common.pagination.PaginationOrdersList;
+import com.tr.common.pagination.hibernate.PageReq;
+import com.tr.common.pagination.hibernate.PageRes;
+import com.tr.common.pagination.mybatis.PaginationList;
+import com.tr.common.pagination.mybatis.PaginationOrdersList;
 import com.tr.common.result.Result;
 import com.tr.p5.dao.depot.DepotDao;
 import com.tr.p5.entity.Depot;
-//import com.tr.p5.hibernate.DepotHibernate;
+import com.tr.p5.hibernate.DepotHibernate;
 import com.tr.p5.jpa.depot.DepotRepository;
 import com.tr.p5.mapper.depot.DepotMapper;
 import com.tr.p5.service.depot.IDepotService;
@@ -41,17 +41,14 @@ public class DepotController {
 	@Autowired
 	private IDepotService depotService;
 	
-//	关于 Hibernate 的整合在项目 Parent-Project6 中独立研究，
-//	首先解决外部jar包中类的自动注入问题（BaseService中的HibernateTemplate）。
-//	
-//	@Autowired
-//	private DepotHibernate depotHibernate;
-//	
-//	@ApiOperation(value = "获取分页列表 Hibernate")
-//	@PostMapping("/depot/list-hibernate")
-//	public PageRes<List<Depot>> pageList(@RequestBody PageReq<Depot> page) {
-//		return depotHibernate.pageList(page);
-//	}
+	@Autowired
+	private DepotHibernate depotHibernate;
+	
+	@ApiOperation(value = "获取分页列表 Hibernate")
+	@PostMapping("/depot/list-hibernate")
+	public PageRes<List<Depot>> pageList(@RequestBody PageReq<Depot> page) {
+		return depotHibernate.pageList(page);
+	}
 	
 	@ApiOperation(value = "获取分页列表 PaginationList")
 	@PostMapping("/depot/list")

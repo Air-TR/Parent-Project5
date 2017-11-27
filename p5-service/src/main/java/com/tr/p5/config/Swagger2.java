@@ -1,4 +1,4 @@
-package com.tr.p5;
+package com.tr.p5.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

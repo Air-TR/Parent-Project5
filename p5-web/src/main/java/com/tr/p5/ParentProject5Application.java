@@ -9,9 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 //@EnableDiscoveryClient
 //@EnableFeignClients
+//@ServletComponentScan(value = { "com" })
 @SpringBootApplication
 @MapperScan("com.tr.p5.mapper")
-//@ServletComponentScan(value = { "com" })
 public class ParentProject5Application {
 
 	public static void main(String[] args) {

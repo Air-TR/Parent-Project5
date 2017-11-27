@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import com.tr.common.page.PageReq;
-import com.tr.common.page.Sort;
-import com.tr.common.page.SortModel;
+import com.tr.common.pagination.hibernate.PageReq;
+import com.tr.common.pagination.hibernate.Sort;
+import com.tr.common.pagination.hibernate.SortModel;
 import com.tr.common.util.StringUtilies;
 
 /**
