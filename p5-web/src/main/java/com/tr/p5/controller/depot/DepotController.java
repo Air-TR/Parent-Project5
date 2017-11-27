@@ -44,12 +44,24 @@ public class DepotController {
 	@Autowired
 	private DepotHibernate depotHibernate;
 	
+	/**
+	 * 研究目标：Hibernate及其分页
+	 * 
+	 * @param page
+	 * @return
+	 */
 	@ApiOperation(value = "获取分页列表 Hibernate")
 	@PostMapping("/depot/list-hibernate")
 	public PageRes<List<Depot>> pageList(@RequestBody PageReq<Depot> page) {
 		return depotHibernate.pageList(page);
 	}
 	
+	/**
+	 * 研究目标：Mybatis分页
+	 * 
+	 * @param page
+	 * @return
+	 */
 	@ApiOperation(value = "获取分页列表 PaginationList")
 	@PostMapping("/depot/list")
 	public Result<PaginationList<Depot>> pageList(@RequestBody PaginationList<Depot> page) {
@@ -61,6 +73,12 @@ public class DepotController {
         return Result.success(page);
 	}
 	
+	/**
+	 * 研究目标：Mybatis分页（带Orders）
+	 * 
+	 * @param page
+	 * @return
+	 */
 	@ApiOperation(value = "获取分页列表 PaginationOrdersList")
 	@PostMapping("/depot/list2")
 	public Result<PaginationOrdersList<Depot>> pageList(@RequestBody PaginationOrdersList<Depot> page) {
@@ -72,6 +90,49 @@ public class DepotController {
 		return Result.success(page);
 	}
 	
+	/**
+	 * 研究目标：service的使用（调用Mapper）
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@ApiOperation(value = "根据id获取")
+	@GetMapping("/depot/get/{id}")
+	public Result<Depot> get(@PathVariable Integer id) {
+		return Result.success(depotService.selectById(id));
+	}
+	
+	/**
+	 * 研究目标：jpa的使用（按官方约定调用方法）
+	 * 
+	 * @param name
+	 * @return
+	 */
+	@ApiOperation(value = "根据名称获取")
+	@GetMapping("/depot/listByName")
+	public Result<List<Depot>> listByName(@RequestParam String name) {
+		return Result.success(depotRepository.findByName(name));
+	}
+	
+	/**
+	 * 研究目标：jpa的使用（自定义方法，自定义HQL语句）
+	 * 
+	 * @param place
+	 * @return
+	 */
+	@ApiOperation(value = "根据名称获取")
+	@GetMapping("/depot/listByPlace")
+	public Result<List<Depot>> listByPlace(@RequestParam String place) {
+		return Result.success(depotRepository.listByPlace(place));
+	}
+	
+	/**
+	 * 研究目标：jpa的使用（自定义方法，自定义HQL语句，需添加事务注解）
+	 * 
+	 * @param id
+	 * @param confirmPerson
+	 * @return
+	 */
 	@ApiOperation(value = "根据id修改确认人")
 	@PostMapping("/depot/updateConfirmPersonById")
 	public Result<?> updateConfirmPersonById(@RequestParam Integer id, @RequestParam String confirmPerson) {
@@ -79,24 +140,12 @@ public class DepotController {
 		return Result.success();
 	}
 	
-	@ApiOperation(value = "根据id获取")
-	@GetMapping("/depot/get/{id}")
-	public Result<Depot> get(@PathVariable Integer id) {
-		return Result.success(depotService.selectById(id));
-	}
-	
-	@ApiOperation(value = "根据名称获取")
-	@GetMapping("/depot/listByName")
-	public Result<List<Depot>> listByName(@RequestParam String name) {
-		return Result.success(depotService.selectListByName(name));
-	}
-	
-	@ApiOperation(value = "根据名称获取")
-	@GetMapping("/depot/listByPlace")
-	public Result<List<Depot>> listByPlace(@RequestParam String place) {
-		return Result.success(depotRepository.listByPlace(place));
-	}
-	
+	/**
+	 * 研究目标：Mapper接口的使用（直接对应映射的xml文件）
+	 * 
+	 * @param depot
+	 * @return
+	 */
 	@ApiOperation(value = "获取全部仓库列表")
 	@PostMapping("/depot/list-all")
 	public Result<List<Depot>> list(@RequestBody Depot depot) {
