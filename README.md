@@ -3,3 +3,4 @@
   Mapper直接映射xml文件，Dao间接映射xml文件。
   整合 Mybatis 分页工具。
   集成 Hibernate 及其分页。
+  pc、app分布部署。
