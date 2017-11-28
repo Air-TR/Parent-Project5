@@ -1,4 +1,4 @@
-package com.tr.p5.controller.depot;
+package com.tr.p5.pc.depot;
 
 import java.util.List;
 

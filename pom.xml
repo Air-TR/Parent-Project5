@@ -64,6 +64,7 @@
 		<module>p5-service</module>
 		<module>p5-web</module>
 		<module>p5-common</module>
+		<module>p5-app</module>
 	</modules>
 	
 </project>

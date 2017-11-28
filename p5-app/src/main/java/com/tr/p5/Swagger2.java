@@ -23,7 +23,7 @@ public class Swagger2 {
                 .apiInfo(apiInfo())
                 .tags(new Tag("Staff", "职员"), getTags())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.tr.p5.pc"))
+                .apis(RequestHandlerSelectors.basePackage("com.tr.p5.app"))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -41,7 +41,7 @@ public class Swagger2 {
     		Contact contact = new Contact("TR", "http://www.tr.com/", "tr1838@163.com");
         return new ApiInfoBuilder()
                 .title("Parent-Project5")
-                .description("接口文档 api - pc端")
+                .description("接口文档 api - app端")
                 .termsOfServiceUrl("http://www.baidu.com/")
                 .contact(contact)
                 .version("1.0")

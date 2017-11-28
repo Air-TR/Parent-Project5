@@ -1,4 +1,4 @@
-package com.tr.p5.controller.properties;
+package com.tr.p5.pc.properties;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;

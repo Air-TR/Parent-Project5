@@ -1,4 +1,4 @@
-package com.tr.p5.controller.exception;
+package com.tr.p5.pc.exception;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -12,9 +12,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //@ServletComponentScan(value = { "com" })
 @SpringBootApplication
 @MapperScan("com.tr.p5.mapper")
-public class ParentProject5Application {
+public class ParentProject5Web {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ParentProject5Application.class, args);
+		SpringApplication.run(ParentProject5Web.class, args);
 	}
 }
