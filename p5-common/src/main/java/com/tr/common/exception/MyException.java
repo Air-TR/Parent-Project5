@@ -9,7 +9,6 @@ import com.tr.common.result.ResultEnum;
  * @date 2017年11月21日 下午3:24:53
  *
  */
-
 public class MyException extends RuntimeException {
 
 	private static final long serialVersionUID = 2463545557484894315L;
@@ -26,7 +25,17 @@ public class MyException extends RuntimeException {
 		this.code = resultEnum.getCode();
     }
 
-    public Integer getCode() {
+    public MyException(String string) {
+    		super(string);
+    		this.code = ResultEnum.FAIL.getCode();
+	}
+
+	public MyException(Integer code2, String string) {
+		super(string);
+		this.code = code2;
+	}
+
+	public Integer getCode() {
         return code;
     }
 
